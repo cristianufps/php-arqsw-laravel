@@ -1,8 +1,4 @@
-const { axios } = require("axios");
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
 
     //cuando capturemos los datos del modal
@@ -20,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         //cuando presionemos un día en el calendario
-        dateClick: function (info) {
+        dateClick: function(info) {
             $("#evento").modal("show")
         }
     });
@@ -28,16 +24,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Capturamos la acción del boton
     //si detecta un click creamos una funcion para recuperar la info
-    document.getElementById("btnGuardar").addEventListener("click", function () {
+    document.getElementById("btnGuardar").addEventListener("click", function() {
         const datos = new FormData(formulario);
-        console.log(datos);
         console.log(formulario.title.value)
+        let body = {
+            'title': formulario.title.value,
+            'descripcion': formulario.descripcion.value,
+            'start': formulario.start.value,
+            'end': formulario.end.value
+        }
+        console.log(body);
+
         //enviando los datos
-        axios.post("http://localhost/agenda/public/evento/agregar", datos)
+        axios.post("http://localhost/php-arqsw-laravel/public/evento/agregar", body)
             .then(
                 (respuesta) => {
                     $("#evento").modal("hiden");
                 }
-            )
+            ).catch(err => {
+                console.log(err);
+            })
     });
 });
