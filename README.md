@@ -25,49 +25,47 @@ PHP (Usar frameworks tipo laravel o Symfony) (Libre bd)
  
 # CONFIGURACION DE ENTORNO: 
 
-Para la creación del proyecto se instalaron las herramientas necesarias para que el trabajo fuera acorde con la tecnología asignada y el framework que se escogió, además de también escoger el gestor de base de datos para trabajar.
+•	Instalación de xampp
 
-•	Creación
+Desde el sitio https://www.apachefriends.org/es/index.html descargar xampp segun el sistema operativo
 
-En la creación del proyecto se adapto en el directorio htdocs de la aplicación xampp, para ir trabajando a la par con el gestor. 
+•	Clonacion del proyecto
 
-Se creo con los comandos: 
+Para poder ejecutar el proyecto desde su equipo, clone el repositorio o descargue el .zip en el directorio "c:/xampp/htdocs"
 
-<code>composer create-project laravel/laravel agenda</code>
+•	Configuracion de la base de datos
 
-•	Configuración de base de datos y migración de tablas
-
-Una vez teniendo el proyecto creado se configuro el archivo “.env” para la base de datos a manejar con el usuario la contraseña y el nombre de la base de datos creada previamente.
-
-Una vez configurado el archivo se ejecutó el comando
+Crear una base de datos llamada "agenda" en phpMyAdmin o cualquier gestor de base de datos MySQL y correr el comando
 
 <code>php artisan migrate</code>
 
-Para la creación automática de las tablas de bases de datos proporcionadas por el proyecto.
+•   Instalacion de composer
 
-•	Integración de Bootstrap y Auth del aplicativo
+Desde el sitio https://getcomposer.org/download/ descargar composer segun el sistema operativo y una vez ejecutado el setup, en la version de php poner la del directorio "xampp/php/php.exe", el proxy se deja predeterminado y se añade la variable al path. Si este no es añadido ir a las variables de entorno del sistema y añadir al PATH la ruta "C:\Users\User\AppData\Roaming\Composer\vendor\bin"
 
-Para la integración de estilos proporcionados por Bootstrap y una autenticación en la aplicación que incluyen estos estilos, se ejecutó el comando para la preparación de las ui de laravel
+•	Instalacion de laravel
 
-<code>composer require laravel/ui </code>
+Para poder correr la aplicacion se debe instalar laravel en el equipo con el comando
 
-Y después para la instalación de estos
+<code>composer global require laravel/installer</code>
 
-<code>php artisan ui bootstrap --auth </code>
+•	Instalacion de node
 
-•	Instalación de los módulos de node y ejecución del ambiente de desarrollo
+Desde el sitio https://nodejs.org/es/ descargar node lts (version estable) e instalarlo en el sistema, una vez instalado verificar su version mediante el comando
 
-Para instalar los modulos de node en el aplicativo y que se puede ejecutar el ambiente de desarrollo del aplicativo se ejecutaron los comandos:
+<code>node --version</code>
 
-<code>npm install && npm run dev </code>
+Para los modulos de node se deben instalar globalmente en el equipo mediante
 
-Una vez preparado el entorno, se accede por medio de la URL: http://localhost/agenda/public/ 
+<code>npm install npm -g</code>
 
-•	Integración de fullcalendar
+Una vez instalado globalmente, dentro del proyecto correr el siguiente comando en la terminal para añadir los modulos de node al mismo
 
-Para integrar fullcalendar al proyecto, se accedió al sitio web https://fullcalendar.io/docs/getting-started donde por medio de los CDNs se añaden los servicios 
- 
-Al archivo app.blade.php, ubicado en “resources/views/layout/”
+<code>npm install</code>
+
+Y para correr el entorno con node, ejecutar
+
+<code>npm run dev</code>
 
 # PROCESO DE DESARROLLO:
 Sobre el proyecto se crearon los diversos controladores y modelos para que cumpliera con el objetivo de la agenda de citas, la visualización del calendario y sus otras funcionalidades
