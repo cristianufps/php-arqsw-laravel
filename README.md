@@ -12,11 +12,15 @@ PHP (Usar frameworks tipo laravel o Symfony) (Libre bd)
 
 # Herramientas utilizadas:
 
-- Composer: sistema de gestión de paquetes para programar en PHP el cual provee los formatos estándar necesarios para manejar dependencias y librerías de PHP
-
 - Xampp: paquete de software libre, que consiste principalmente en el sistema de gestión de bases de datos MySQL, el servidor web Apache y los intérpretes para lenguajes de script PHP y Perl.
 
+- Composer: sistema de gestión de paquetes para programar en PHP el cual provee los formatos estándar necesarios para manejar dependencias y librerías de PHP
+
+- Laravel: es un framework de código abierto para desarrollar aplicaciones y servicios web con PHP
+
 - Fullcalendar: es un plugin de jQuery que ofrece un calendario de tamaño completo, con la función de 'arrastrar y soltar'. Se utiliza AJAX para traer eventos en la marcha cada mes y se puede configurarlo fácilmente.
+
+- Una vez instalado Composer ejecutaremos el siguiente comando "composer global require laravel/installer" para instarlar laravel dentro de nuestro proyecto
 
  
 # CONFIGURACION DE ENTORNO: 
