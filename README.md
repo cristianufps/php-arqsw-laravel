@@ -17,6 +17,11 @@ PHP (Usar frameworks tipo laravel o Symfony) (Libre bd)
 # CONFIGURACION DE ENTORNO: 
 
 Para la creación del proyecto se instalaron las herramientas necesarias para que el trabajo fuera acorde con la tecnología asignada y el framework que se escogió, además de también escoger el gestor de base de datos para trabajar.
+
+•	Instalación de XAMPP https://www.apachefriends.org/es/index.html 
+
+•	Instalación de composer https://getcomposer.org/ 
+
 •	Creación
 En la creación del proyecto se adapto en el directorio htdocs de la aplicación xampp, para ir trabajando a la par con el gestor. 
 Se creo con los comandos: 
