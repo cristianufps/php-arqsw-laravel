@@ -49,6 +49,12 @@ Para poder correr la aplicacion se debe instalar laravel en el equipo con el com
 
 <code>composer global require laravel/installer</code>
 
+•	Instalacion de modulos de composer 
+
+Para que el proyecto tenga el directorio "vendor" y las configuraciones que consigo trae composer, ejecutar
+
+<code>composer install</code>
+
 •	Instalacion de node
 
 Desde el sitio https://nodejs.org/es/ descargar node lts (version estable) e instalarlo en el sistema, una vez instalado verificar su version mediante el comando
