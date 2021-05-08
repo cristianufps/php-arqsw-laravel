@@ -1,51 +1,66 @@
 # INTRODUCCION
 Se asignó una tecnología a cada grupo, a fin de realizar un proyecto pequeño de desarrollo de software (con persistencia) para demostrar esa tecnología y una exposición corta en video. 
+
 La aplicación se debe desplegar en la nube de Amazon AWS usando los recursos asignados de AWS Educate. El código debe publicarse en Github. El video debe publicase en Youtube, enfocándose en las instrucciones para el despliegue y los detalles relevantes de la tecnología y la aplicación desarrollada.
+
 En clase se podrá revisar aleatoriamente pidiendo que se exponga y explique.
 
 # Tecnología 
 PHP (Usar frameworks tipo laravel o Symfony) (Libre bd)
 
-# Framework usado  Laravel
+# Framework usado -> Laravel
 
 # Herramientas utilizadas:
 
 - Composer: sistema de gestión de paquetes para programar en PHP el cual provee los formatos estándar necesarios para manejar dependencias y librerías de PHP
+
 - Xampp: paquete de software libre, que consiste principalmente en el sistema de gestión de bases de datos MySQL, el servidor web Apache y los intérpretes para lenguajes de script PHP y Perl.
+
 - Fullcalendar: es un plugin de jQuery que ofrece un calendario de tamaño completo, con la función de 'arrastrar y soltar'. Se utiliza AJAX para traer eventos en la marcha cada mes y se puede configurarlo fácilmente.
+
  
 # CONFIGURACION DE ENTORNO: 
 
 Para la creación del proyecto se instalaron las herramientas necesarias para que el trabajo fuera acorde con la tecnología asignada y el framework que se escogió, además de también escoger el gestor de base de datos para trabajar.
 
-•	Instalación de XAMPP https://www.apachefriends.org/es/index.html 
-
-•	Instalación de composer https://getcomposer.org/ 
-
 •	Creación
+
 En la creación del proyecto se adapto en el directorio htdocs de la aplicación xampp, para ir trabajando a la par con el gestor. 
+
 Se creo con los comandos: 
-Composer create-project laravel/laravel agenda
+
+<code>composer create-project laravel/laravel agenda</code>
 
 •	Configuración de base de datos y migración de tablas
+
 Una vez teniendo el proyecto creado se configuro el archivo “.env” para la base de datos a manejar con el usuario la contraseña y el nombre de la base de datos creada previamente.
+
 Una vez configurado el archivo se ejecutó el comando
-php artisan migrate
+
+<code>php artisan migrate</code>
 
 Para la creación automática de las tablas de bases de datos proporcionadas por el proyecto.
+
 •	Integración de Bootstrap y Auth del aplicativo
+
 Para la integración de estilos proporcionados por Bootstrap y una autenticación en la aplicación que incluyen estos estilos, se ejecutó el comando para la preparación de las ui de laravel
-composer require laravel/ui
+
+<code>composer require laravel/ui </code>
 
 Y después para la instalación de estos
-php artisan ui bootstrap --auth
+
+<code>php artisan ui bootstrap --auth </code>
 
 •	Instalación de los módulos de node y ejecución del ambiente de desarrollo
+
 Para instalar los modulos de node en el aplicativo y que se puede ejecutar el ambiente de desarrollo del aplicativo se ejecutaron los comandos:
-npm install && npm run dev
+
+<code>npm install && npm run dev </code>
 
 Una vez preparado el entorno, se accede por medio de la URL: http://localhost/agenda/public/ 
+
 •	Integración de fullcalendar
+
 Para integrar fullcalendar al proyecto, se accedió al sitio web https://fullcalendar.io/docs/getting-started donde por medio de los CDNs se añaden los servicios 
  
 Al archivo app.blade.php, ubicado en “resources/views/layout/”
