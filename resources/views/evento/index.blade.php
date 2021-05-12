@@ -2,13 +2,13 @@
 @section('content')
 
 <div class="container">
-    <div id="agenda">Calendario Cargado</div>
+    <div id="agenda"></div>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
     Launch
-</button>
+</button> -->
 
 <!-- Modal -->
 <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -21,9 +21,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_calendar" action="">
+                <form id="formularioEventos" action="">
                     {!! csrf_field() !!}
-                    <div class="form-group">
+                    <div class="form-group d-none">
                         <label for="id">Id</label>
                         <input type="text" required class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
                         <small id="helpId" class="form-text text-muted">Help text</small>
@@ -42,13 +42,13 @@
 
                     <div class="form-group">
                         <label for="start">Start</label>
-                        <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
+                        <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="" disabled>
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
 
                     <div class="form-group">
                         <label for="end">End</label>
-                        <input type="text" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
+                        <input type="date" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
 
