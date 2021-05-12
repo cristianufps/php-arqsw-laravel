@@ -21,7 +21,35 @@ document.addEventListener("DOMContentLoaded", function () {
         //cuando presionemos un día en el calendario
         //info es el día que presione
         dateClick: function (info) {
+            formulario.reset();
+            formulario.start.value = info.dateStr;
+            formulario.end.value = info.dateStr;
             $("#evento").modal("show");
+        },
+        eventClick: function (info) {
+            var evento = info.event;
+            console.log(evento);
+
+            //enviando los datos por post de edicion de evento o cita
+            axios
+                .post(
+                    "http://localhost/php-arqsw-laravel/public/evento/editar/" +
+                        info.event.id
+                )
+                .then((res) => {
+                    formulario.id.value = res.data.id;
+                    formulario.title.value = res.data.title;
+                    formulario.descripcion.value = res.data.descripcion;
+                    formulario.start.value = res.data.start;
+                    formulario.end.value = res.data.end;
+                    // console.log("response" + res);
+                    $("#evento").modal("show");
+                })
+                .catch((err) => {
+                    if (err.resp) {
+                        console.log("Error" + err.resp);
+                    }
+                });
         },
     });
     calendar.render();
@@ -42,14 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             console.log(body);
 
-            //enviando los datos
+            //enviando los datos por post de agregacion de evento o cita
             axios
                 .post(
                     "http://localhost/php-arqsw-laravel/public/evento/agregar",
                     datos
                 )
                 .then((res) => {
-                    console.log("response" + res);
+                    calendar.refetchEvents();
+                    // console.log("response" + res);
                     $("#evento").modal("hide");
                 })
                 .catch((err) => {
