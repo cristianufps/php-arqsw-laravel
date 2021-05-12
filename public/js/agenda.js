@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
             right: "dayGridMonth,timeGridWeek,listWeek",
         },
 
+        //Mostrar los eventos en el calendario
+        events: "http://localhost/php-arqsw-laravel/public/evento/mostrar",
+
         //cuando presionemos un día en el calendario
         //info es el día que presione
         dateClick: function (info) {
@@ -54,15 +57,5 @@ document.addEventListener("DOMContentLoaded", function () {
                         console.log("Error" + err.resp);
                     }
                 });
-            // axios.post("http://localhost/php-arqsw-laravel/public/evento/agregar", body)
-            //     .then(
-            //         (respuesta) => {
-            //             $("#evento").modal("hiden");
-            //         }
-            //     ).catch(err => {
-            //         if (err.response) {
-            //             console.log("Error:" + err.response);
-            //         }
-            //     })
         });
 });

@@ -41,7 +41,7 @@ class EventoController extends Controller
         //validamos los roles
         request()->validate(Evento::$rules);
         //creamos la información con los datos que llegan
-        $evento=Evento::create($request->all());
+        $evento = Evento::create($request->all());
     }
 
     /**
@@ -52,7 +52,9 @@ class EventoController extends Controller
      */
     public function show(Evento $evento)
     {
-        //
+        //mostrar las citas
+        $evento = Evento::all();
+        return response()->json($evento);
     }
 
     /**

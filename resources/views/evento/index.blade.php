@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <div id="agenda">Calendario Cargado</div>
+    <div id="agenda"></div>
 </div>
 
 <!-- Button trigger modal -->
