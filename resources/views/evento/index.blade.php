@@ -21,7 +21,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_calendar" action="">
+                <form id="formularioEventos" action="">
                     {!! csrf_field() !!}
                     <div class="form-group d-none">
                         <label for="id">Id</label>

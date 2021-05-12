@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view("evento.index");
+})->middleware("auth");
 
 Auth::routes();
 
@@ -25,10 +25,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //-----------EVENTO-------------
 Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
-Route::get('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+// Deshabilitado por motivos de seguridad Route::get('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
 
 //Rutas con peticiones POST
 //-----------EVENTO-------------
+Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
 Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
 Route::post('evento/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
 Route::post('evento/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);

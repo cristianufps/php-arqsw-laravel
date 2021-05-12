@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     //cuando capturemos los datos del modal
-    let formulario = document.querySelector("form");
+    let formulario = document.querySelector("#formularioEventos");
 
     var calendarEl = document.getElementById("agenda");
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -14,8 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
             // Para ver por semana y la agenda completa ,timeGridWeek,listWeek",
         },
 
-        //Mostrar los eventos en el calendario
-        events: "http://localhost/php-arqsw-laravel/public/evento/mostrar",
+        //Mostrar los eventos en el calendario (Deshabilitado por la autenticacion)
+        // events: "http://localhost/php-arqsw-laravel/public/evento/mostrar",
+
+        eventSources: {
+            url: baseURL + "/evento/mostrar",
+            method: "POST",
+            extraParams: {
+                _token: formulario._token.value,
+            },
+        },
 
         //cuando presionemos un día en el calendario
         //info es el día que presione
