@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#evento").modal("show");
         },
         eventClick: function (info) {
-            var evento = info.event;
-            console.log(evento);
+            // var evento = info.event;
+            // console.log(evento);
 
             //enviando los datos por post de edicion de evento o cita
             axios
@@ -72,6 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
             //enviando los datos por post de eliminacion de evento o cita
             enviarDatos(
                 "http://localhost/php-arqsw-laravel/public/evento/eliminar/" +
+                    formulario.id.value
+            );
+        });
+
+    //Accion del boton MODIFICAR
+    document
+        .getElementById("btnModificar")
+        .addEventListener("click", function () {
+            //enviando los datos por post de eliminacion de evento o cita
+            enviarDatos(
+                "http://localhost/php-arqsw-laravel/public/evento/actualizar/" +
                     formulario.id.value
             );
         });
