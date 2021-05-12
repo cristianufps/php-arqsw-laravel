@@ -30,3 +30,4 @@ Route::get('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'sh
 //Rutas con peticiones POST
 Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
 Route::post('evento/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
+Route::post('evento/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);

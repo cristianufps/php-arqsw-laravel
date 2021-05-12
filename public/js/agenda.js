@@ -54,37 +54,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     calendar.render();
 
-    //Capturamos la acción del boton
+    //Acción del boton GUARDAR
     //si detecta un click creamos una funcion para recuperar la info
     document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
-            const datos = new FormData(formulario);
-            console.log(formulario.id.value);
-            console.log(formulario.start.value);
-            let body = {
-                title: formulario.title.value,
-                descripcion: formulario.descripcion.value,
-                start: formulario.start.value,
-                end: formulario.end.value,
-            };
-            console.log(body);
-
             //enviando los datos por post de agregacion de evento o cita
-            axios
-                .post(
-                    "http://localhost/php-arqsw-laravel/public/evento/agregar",
-                    datos
-                )
-                .then((res) => {
-                    calendar.refetchEvents();
-                    // console.log("response" + res);
-                    $("#evento").modal("hide");
-                })
-                .catch((err) => {
-                    if (err.resp) {
-                        console.log("Error" + err.resp);
-                    }
-                });
+            enviarDatos(
+                "http://localhost/php-arqsw-laravel/public/evento/agregar"
+            );
         });
+
+    //Accion del boton ELIMINAR
+    document
+        .getElementById("btnEliminar")
+        .addEventListener("click", function () {
+            //enviando los datos por post de eliminacion de evento o cita
+            enviarDatos(
+                "http://localhost/php-arqsw-laravel/public/evento/eliminar/" +
+                    formulario.id.value
+            );
+        });
+
+    function enviarDatos(url) {
+        const datos = new FormData(formulario);
+
+        //enviando los datos por post de eliminacion de evento o cita
+        axios
+            .post(url, datos)
+            .then((res) => {
+                calendar.refetchEvents();
+                $("#evento").modal("hide");
+            })
+            .catch((err) => {
+                if (err.resp) {
+                    console.log("Error" + err.resp.data);
+                }
+            });
+    }
 });

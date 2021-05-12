@@ -23,11 +23,11 @@
             <div class="modal-body">
                 <form id="form_calendar" action="">
                     {!! csrf_field() !!}
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="id">Id</label>
                         <input type="text" required class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
                         <small id="helpId" class="form-text text-muted">Help text</small>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                         <label for="title">Titulo Evento</label>
