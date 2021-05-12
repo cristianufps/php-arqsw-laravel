@@ -36,7 +36,12 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //accediendo a los roles
+        //el evento que se utiliza es este mismo App\Models\Evento;
+        //validamos los roles
+        request()->validate(Evento::$rules);
+        //creamos la información con los datos que llegan
+        $evento=Evento::create($request->all());
     }
 
     /**
