@@ -41,13 +41,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="start">Start</label>
+                        <label for="start">Fecha de inicio</label>
                         <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="" disabled>
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="end">End</label>
+                        <label for="end">Fecha de finalizacion</label>
                         <input type="date" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
