@@ -22,6 +22,10 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/locales-all.js"></script>
 
+    <script type="text/javascript">
+        //Omitir error
+        var baseURL = {!! json_encode(url('/')) !!}
+    </script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -88,3 +92,4 @@
 </body>
 
 </html>
+

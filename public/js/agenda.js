@@ -1,5 +1,3 @@
-// const { default: axios } = require("axios");
-
 document.addEventListener("DOMContentLoaded", function () {
     //cuando capturemos los datos del modal
     let formulario = document.querySelector("form");
@@ -8,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
         locale: "es",
-
+        displayEventTime: false,
         headerToolbar: {
             left: "prev,next today",
             center: "title",
-            right: "dayGridMonth,timeGridWeek,listWeek",
+            right: "dayGridMonth",
+            // Para ver por semana y la agenda completa ,timeGridWeek,listWeek",
         },
 
         //Mostrar los eventos en el calendario
@@ -32,10 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //enviando los datos por post de edicion de evento o cita
             axios
-                .post(
-                    "http://localhost/php-arqsw-laravel/public/evento/editar/" +
-                        info.event.id
-                )
+                .post(baseURL + "/evento/editar/" + info.event.id)
                 .then((res) => {
                     formulario.id.value = res.data.id;
                     formulario.title.value = res.data.title;
@@ -60,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
             //enviando los datos por post de agregacion de evento o cita
-            enviarDatos(
-                "http://localhost/php-arqsw-laravel/public/evento/agregar"
-            );
+            enviarDatos("/evento/agregar");
         });
 
     //Accion del boton ELIMINAR
@@ -70,10 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("btnEliminar")
         .addEventListener("click", function () {
             //enviando los datos por post de eliminacion de evento o cita
-            enviarDatos(
-                "http://localhost/php-arqsw-laravel/public/evento/eliminar/" +
-                    formulario.id.value
-            );
+            enviarDatos("/evento/eliminar/" + formulario.id.value);
         });
 
     //Accion del boton MODIFICAR
@@ -81,18 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("btnModificar")
         .addEventListener("click", function () {
             //enviando los datos por post de eliminacion de evento o cita
-            enviarDatos(
-                "http://localhost/php-arqsw-laravel/public/evento/actualizar/" +
-                    formulario.id.value
-            );
+            enviarDatos("/evento/actualizar/" + formulario.id.value);
         });
 
     function enviarDatos(url) {
         const datos = new FormData(formulario);
 
+        const nuevaURL = baseURL + url;
+
         //enviando los datos por post de eliminacion de evento o cita
         axios
-            .post(url, datos)
+            .post(nuevaURL, datos)
             .then((res) => {
                 calendar.refetchEvents();
                 $("#evento").modal("hide");
