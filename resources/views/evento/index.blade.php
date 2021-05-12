@@ -40,9 +40,9 @@
                         <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
                     </div>
 
-                    <div class="form-group d-none">
+                    <div class="form-group">
                         <label for="start">Start</label>
-                        <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
+                        <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="" disabled>
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
 

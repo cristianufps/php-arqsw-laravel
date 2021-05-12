@@ -20,17 +20,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Rutas con peticiones GET
-//-----------HOME-------------
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//-----------EVENTO-------------
-Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
-// Deshabilitado por motivos de seguridad Route::get('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+Route::group(['middleware' => ['auth']], function () {
 
-//Rutas con peticiones POST
-//-----------EVENTO-------------
-Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
-Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
-Route::post('evento/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
-Route::post('evento/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
-Route::post('evento/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
+    //Rutas con peticiones GET
+    //-----------HOME-------------
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    //-----------EVENTO-------------
+    Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
+    // Deshabilitado por motivos de seguridad Route::get('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+
+    //Rutas con peticiones POST
+    //-----------EVENTO-------------
+    Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+    Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
+    Route::post('evento/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
+    Route::post('evento/eliminar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
+    Route::post('evento/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
+});
