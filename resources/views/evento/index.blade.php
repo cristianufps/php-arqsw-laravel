@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="start">Fecha de inicio</label>
-                        <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="" disabled>
+                        <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="" readonly>
                         <small id="helpId" class="form-text text-muted">Help text</small>
                     </div>
 
